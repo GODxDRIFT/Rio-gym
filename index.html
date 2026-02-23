@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="RIO GYM — Premier athletic facility in Sai Enclave, Hastsal, New Delhi. Train with Anuj & Sonu. Morning & evening shifts available.">
+<meta name="keywords" content="gym Hastsal, fitness center New Delhi, RIO GYM, personal trainer Delhi, weight loss gym near me">
+<title>RIO GYM · Hastsal, New Delhi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;1,700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --y: #FFE000;
+  --b: #0A0A0A;
+  --w: #FFFFFF;
+  --g: #F2F2F2;
+  --mid: #888;
+  --border: 2px solid var(--b);
+  --shadow: 5px 5px 0 var(--b);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--w);color:var(--b);font-family:'Barlow Condensed',sans-serif;font-size:18px;line-height:1.5;overflow-x:hidden}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--w)}
+::-webkit-scrollbar-thumb{background:var(--y)}
+.tag-mono{font-family:'IBM Plex Mono',monospace;font-size:.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--mid);display:flex;align-items:center;gap:8px;margin-bottom:14px}
+.tag-mono::before{content:'◆';color:var(--y);font-size:.5rem}
+h2.title{font-family:'Anton',sans-serif;font-size:clamp(3rem,7vw,6rem);line-height:.95;text-transform:uppercase;letter-spacing:1px}
+h2.title .y{color:var(--y);-webkit-text-stroke:1px var(--b)}
+h2.title .out{color:transparent;-webkit-text-stroke:2px var(--b)}
+.sub{color:var(--mid);font-size:1rem;max-width:540px;margin-top:12px}
+section{padding:90px 6%}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* NAV */
+nav{position:fixed;inset:0 0 auto 0;z-index:1000;background:var(--b);height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 6%;border-bottom:3px solid var(--y)}
+.logo{font-family:'Anton',sans-serif;font-size:1.8rem;letter-spacing:3px;color:var(--y);text-decoration:none}
+.logo span{color:var(--w)}
+.nav-links{display:flex;gap:0;list-style:none;font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:2px;text-transform:uppercase}
+.nav-links a{display:block;color:var(--mid);text-decoration:none;padding:8px 16px;border-left:1px solid #222;transition:color .2s,background .2s}
+.nav-links a:hover{color:var(--y);background:#111}
+.nav-join{background:var(--y)!important;color:var(--b)!important;font-weight:600;border-left:none!important}
+.nav-join:hover{background:#ffd000!important}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.burger span{width:22px;height:2px;background:var(--y);display:block;transition:.3s}
+.mob-nav{position:fixed;inset:64px 0 0 0;background:var(--b);z-index:999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.5rem;transform:translateX(100%);transition:transform .35s cubic-bezier(.77,0,.18,1)}
+.mob-nav.open{transform:none}
+.mob-nav a{font-family:'Anton',sans-serif;font-size:3rem;letter-spacing:4px;color:var(--w);text-decoration:none;transition:color .2s}
+.mob-nav a:hover{color:var(--y)}
+
+/* HERO */
+#hero{min-height:100vh;padding-top:64px;display:grid;grid-template-columns:1fr 1fr;background:var(--b);position:relative;overflow:hidden}
+#hero::after{content:'';position:absolute;top:0;right:0;width:50%;height:100%;background:var(--y);clip-path:polygon(12% 0,100% 0,100% 100%,0% 100%);z-index:0}
+.hero-left{position:relative;z-index:1;padding:80px 6% 60px;display:flex;flex-direction:column;justify-content:center}
+.hero-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:3px;color:var(--y);text-transform:uppercase;margin-bottom:20px;animation:fadeUp .6s ease both}
+.hero-title{font-family:'Anton',sans-serif;font-size:clamp(5rem,13vw,11rem);line-height:.88;text-transform:uppercase;animation:fadeUp .6s .1s ease both}
+.hero-title .w{color:var(--w)}
+.hero-title .y{color:var(--y)}
+.hero-title .out{color:transparent;-webkit-text-stroke:2px var(--y)}
+.hero-desc{color:#aaa;font-size:1rem;max-width:380px;margin-top:20px;line-height:1.7;animation:fadeUp .6s .2s ease both}
+.hero-actions{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap;animation:fadeUp .6s .3s ease both}
+.btn{font-family:'Anton',sans-serif;font-size:1.1rem;letter-spacing:3px;text-transform:uppercase;text-decoration:none;padding:14px 34px;display:inline-flex;align-items:center;gap:8px;border:2px solid transparent;transition:transform .2s,box-shadow .2s;cursor:pointer}
+.btn:hover{transform:translate(-3px,-3px)}
+.btn-y{background:var(--y);color:var(--b);border-color:var(--y)}
+.btn-y:hover{box-shadow:6px 6px 0 var(--w)}
+.btn-w{background:transparent;color:var(--w);border-color:#444}
+.btn-w:hover{border-color:var(--y);color:var(--y);box-shadow:6px 6px 0 var(--y)}
+.hero-right{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:80px 5% 60px}
+
+/* STATUS */
+.status-card{background:var(--b);border:2px solid var(--b);padding:28px 32px;width:100%;max-width:320px;animation:fadeUp .6s .4s ease both;box-shadow:var(--shadow)}
+.s-header{font-family:'IBM Plex Mono',monospace;font-size:.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--b);margin-bottom:16px;background:var(--y);padding:4px 10px;display:inline-block}
+.s-row{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.s-dot{width:14px;height:14px;border-radius:50%;border:2px solid var(--b);flex-shrink:0}
+.s-dot.peak{background:var(--y);animation:dotPulse 1s infinite}
+.s-dot.open{background:#22c55e;animation:dotPulse 1.5s infinite}
+.s-dot.closed{background:#ef4444}
+.s-label{font-family:'Anton',sans-serif;font-size:1.6rem;letter-spacing:2px;color:var(--w)}
+.s-time{font-family:'IBM Plex Mono',monospace;font-size:.7rem;color:#aaa;margin-top:6px}
+.shifts-list{margin-top:14px;border-top:1px solid #222;padding-top:14px;display:flex;flex-direction:column;gap:8px}
+.shift-item{display:flex;align-items:center;gap:10px;font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:#777}
+.shift-item .sd{width:8px;height:8px;border-radius:50%;background:#333;flex-shrink:0}
+.shift-item.active{color:var(--y)}
+.shift-item.active .sd{background:var(--y)}
+.hero-stats{display:flex;gap:0;width:100%;max-width:320px;margin-top:16px;border:2px solid var(--b);animation:fadeUp .6s .5s ease both}
+.h-stat{flex:1;padding:16px 12px;text-align:center;background:var(--w);border-right:2px solid var(--b)}
+.h-stat:last-child{border-right:none}
+.h-stat-num{font-family:'Anton',sans-serif;font-size:2rem;line-height:1;color:var(--b)}
+.h-stat-label{font-family:'IBM Plex Mono',monospace;font-size:.55rem;letter-spacing:1px;text-transform:uppercase;color:var(--mid);margin-top:4px}
+
+/* TICKER */
+.ticker{background:var(--y);padding:12px 0;overflow:hidden;border-top:2px solid var(--b);border-bottom:2px solid var(--b)}
+.ticker-inner{display:inline-flex;white-space:nowrap;animation:tick 28s linear infinite}
+.ticker-item{font-family:'Anton',sans-serif;font-size:1.05rem;letter-spacing:4px;text-transform:uppercase;color:var(--b);padding:0 28px}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* FEATURES */
+#features{background:var(--b);padding:70px 6%;border-bottom:3px solid var(--y)}
+.features-row{display:grid;grid-template-columns:repeat(6,1fr);gap:0;border:2px solid #222;margin-top:40px}
+.feat{padding:32px 20px;text-align:center;border-right:1px solid #222;transition:background .25s}
+.feat:last-child{border-right:none}
+.feat:hover{background:var(--y)}
+.feat:hover .feat-title,.feat:hover .feat-sub{color:var(--b)}
+.feat-icon{font-size:2.2rem;margin-bottom:12px;display:block}
+.feat-title{font-family:'Anton',sans-serif;font-size:1.2rem;letter-spacing:2px;color:var(--w);margin-bottom:4px;transition:color .25s}
+.feat-sub{font-size:.8rem;color:var(--mid);transition:color .25s}
+
+/* MEMBERSHIP */
+#membership{background:var(--g)}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:48px;border:var(--border)}
+.plan{padding:44px 32px;border-right:var(--border);background:var(--w);position:relative;transition:transform .25s,box-shadow .25s}
+.plan:last-child{border-right:none}
+.plan:hover{transform:translate(-4px,-4px);box-shadow:var(--shadow);z-index:1}
+.plan.star{background:var(--b)}
+.plan-badge{position:absolute;top:-2px;left:32px;background:var(--y);color:var(--b);font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:2px;padding:4px 12px;text-transform:uppercase;font-weight:600}
+.plan-name{font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:3px;text-transform:uppercase;margin-bottom:16px}
+.plan.star .plan-name{color:#777}
+.plan-price{font-family:'Anton',sans-serif;font-size:4.5rem;line-height:1;letter-spacing:-1px}
+.plan.star .plan-price{color:var(--y)}
+.plan-curr{font-size:2rem;vertical-align:super}
+.plan-period{font-size:.85rem;color:var(--mid);margin-top:4px;margin-bottom:24px;font-family:'IBM Plex Mono',monospace}
+.plan.star .plan-period{color:#555}
+.plan-feats{list-style:none;margin-bottom:28px}
+.plan-feats li{padding:9px 0;border-bottom:1px solid #eee;font-size:.95rem;display:flex;align-items:center;gap:10px}
+.plan.star .plan-feats li{border-color:#1a1a1a;color:var(--g)}
+.plan-feats li::before{content:'→';font-family:monospace;font-weight:700}
+.plan-feats li.no{color:#bbb}
+.plan-feats li.no::before{content:'–';color:#ccc}
+.plan.star .plan-feats li::before{color:var(--y)}
+.plan.star .plan-feats li.no{color:#444}
+.btn-plan{display:block;text-align:center;padding:14px;font-family:'Anton',sans-serif;font-size:1.1rem;letter-spacing:3px;text-decoration:none;border:2px solid var(--b);color:var(--b);transition:all .2s;background:transparent;cursor:pointer;width:100%}
+.btn-plan:hover{background:var(--b);color:var(--y)}
+.plan.star .btn-plan{background:var(--y);color:var(--b);border-color:var(--y)}
+.plan.star .btn-plan:hover{background:#ffd000;box-shadow:4px 4px 0 #555}
+
+/* TRAINERS */
+#trainers{background:var(--w)}
+.trainers-scroll{display:flex;gap:0;margin-top:48px;overflow-x:auto;border:var(--border);scroll-snap-type:x mandatory}
+.trainers-scroll::-webkit-scrollbar{height:4px}
+.trainers-scroll::-webkit-scrollbar-thumb{background:var(--y)}
+.trainer{min-width:320px;flex-shrink:0;border-right:var(--border);scroll-snap-align:start}
+.trainer:last-child{border-right:none}
+.trainer-top{background:var(--b);height:260px;display:flex;align-items:center;justify-content:center;font-size:7rem;position:relative;overflow:hidden}
+.trainer-top::after{content:'';position:absolute;bottom:0;left:0;right:0;height:6px;background:var(--y)}
+.trainer-num{position:absolute;top:16px;left:16px;font-family:'Anton',sans-serif;font-size:5rem;color:rgba(255,224,0,.06);line-height:1}
+.trainer-body{padding:28px 24px}
+.trainer-name{font-family:'Anton',sans-serif;font-size:2.5rem;letter-spacing:3px;color:var(--b)}
+.trainer-role{font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:2px;color:var(--y);text-transform:uppercase;margin-bottom:10px;background:var(--b);display:inline-block;padding:3px 10px}
+.trainer-bio{font-size:.9rem;color:var(--mid);margin-bottom:16px;line-height:1.6}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tg{font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:1px;padding:4px 10px;border:1.5px solid var(--b);text-transform:uppercase;transition:all .2s;cursor:default}
+.tg:hover{background:var(--y);border-color:var(--b)}
+.tg.hl{background:var(--y)}
+.cta-trainer{min-width:260px;flex-shrink:0;background:var(--y);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:60px 32px}
+.cta-trainer .big{font-family:'Anton',sans-serif;font-size:1.8rem;letter-spacing:3px;color:var(--b);margin-bottom:12px}
+.cta-trainer p{font-size:.9rem;color:#555;margin-bottom:24px}
+
+/* GALLERY */
+#gallery{background:var(--g);padding-bottom:0}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:var(--border);margin-top:48px}
+.g-item{border-right:var(--border);border-bottom:var(--border);padding:44px 28px;position:relative;background:var(--w);transition:background .25s;cursor:pointer;overflow:hidden}
+.g-item:nth-child(3n){border-right:none}
+.g-item:nth-last-child(-n+3){border-bottom:none}
+.g-item:hover{background:var(--b)}
+.g-item:hover .g-name,.g-item:hover .g-sub{color:var(--w)}
+.g-item:hover .g-icon-bg{opacity:.08}
+.g-item:hover .g-tag{background:var(--y);color:var(--b)}
+.g-item.wide{grid-column:span 2}
+.g-icon-bg{position:absolute;bottom:-10px;right:-10px;font-size:7rem;opacity:.04;transition:opacity .25s;line-height:1;pointer-events:none}
+.g-tag{font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:2px;padding:3px 10px;background:var(--b);color:var(--y);text-transform:uppercase;display:inline-block;margin-bottom:16px;transition:all .25s}
+.g-icon{font-size:2.5rem;margin-bottom:12px;display:block}
+.g-name{font-family:'Anton',sans-serif;font-size:1.8rem;letter-spacing:2px;transition:color .25s}
+.g-sub{font-size:.85rem;color:var(--mid);margin-top:4px;transition:color .25s}
+
+/* BMI */
+#bmi{background:var(--b)}
+.bmi-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:48px;border:2px solid #222}
+.bmi-fw{padding:44px;border-right:2px solid #222;background:#0f0f0f}
+.bmi-rw{padding:44px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-height:400px}
+.form-label{display:block;font-family:'IBM Plex Mono',monospace;font-size:.65rem;letter-spacing:2px;text-transform:uppercase;color:#666;margin-bottom:8px}
+.form-input{width:100%;background:#111;border:1.5px solid #222;color:var(--w);font-family:'Barlow Condensed',sans-serif;font-size:1rem;padding:12px 16px;outline:none;transition:border-color .2s;margin-bottom:20px;-webkit-appearance:none}
+.form-input:focus{border-color:var(--y)}
+.form-input option{background:#111}
+.unit-row{display:flex;gap:0;margin-bottom:20px}
+.unit-btn{flex:1;padding:10px;border:1.5px solid #222;font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:2px;text-transform:uppercase;cursor:pointer;background:#111;color:#555;transition:all .2s}
+.unit-btn.on{background:var(--y);color:var(--b);border-color:var(--y);font-weight:600}
+.bmi-num{font-family:'Anton',sans-serif;font-size:7rem;line-height:1;color:var(--y);transition:color .4s}
+.bmi-cat{font-family:'IBM Plex Mono',monospace;font-size:.75rem;letter-spacing:3px;text-transform:uppercase;color:#555;margin:8px 0 20px;transition:color .4s}
+.bmi-track{width:100%;height:6px;background:#111;border:1px solid #222;position:relative;margin:12px 0;overflow:visible}
+.bmi-fill{height:100%;background:linear-gradient(90deg,#3b82f6,#22c55e 40%,#f59e0b 70%,#ef4444)}
+.bmi-needle{position:absolute;top:-6px;left:40%;width:4px;height:18px;background:var(--y);transform:translateX(-50%);transition:left .6s cubic-bezier(.34,1.56,.64,1)}
+.bmi-scale{display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:.55rem;color:#444;margin-top:6px}
+.bmi-tip{font-size:.9rem;color:#555;margin-top:20px;max-width:280px;line-height:1.6}
+
+/* LEAD FORM */
+#trial{background:var(--w)}
+.trial-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:48px;border:var(--border)}
+.trial-left{padding:44px;background:var(--y);border-right:var(--border)}
+.trial-left h3{font-family:'Anton',sans-serif;font-size:2.4rem;letter-spacing:3px;color:var(--b);margin-bottom:10px}
+.trial-left p{color:#555;font-size:.95rem;line-height:1.6;margin-bottom:28px}
+.perks{display:flex;flex-direction:column;gap:0}
+.perk{display:flex;align-items:flex-start;gap:16px;padding:16px 0;border-bottom:1.5px solid rgba(0,0,0,.12)}
+.perk:last-child{border-bottom:none}
+.perk-icon{font-size:1.5rem;flex-shrink:0}
+.perk strong{display:block;color:var(--b);font-size:1rem}
+.perk span{font-size:.85rem;color:#555}
+.lead-form-wrap{padding:44px;background:var(--w)}
+.lead-title{font-family:'Anton',sans-serif;font-size:2rem;letter-spacing:3px;color:var(--b);margin-bottom:24px}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fi{width:100%;background:var(--w);border:2px solid var(--b);color:var(--b);font-family:'Barlow Condensed',sans-serif;font-size:1rem;padding:12px 16px;outline:none;transition:border-color .2s,box-shadow .2s;margin-bottom:14px;-webkit-appearance:none;appearance:none}
+.fi:focus{border-color:var(--y);box-shadow:4px 4px 0 var(--y)}
+.fi-label{display:block;font-family:'IBM Plex Mono',monospace;font-size:.63rem;letter-spacing:2px;text-transform:uppercase;color:var(--mid);margin-bottom:6px}
+select.fi{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M6 8L0 0h12z' fill='%230A0A0A'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;background-color:var(--w);cursor:pointer}
+.success-box{display:none;text-align:center;padding:60px 20px}
+.success-box .ico{font-size:4rem;margin-bottom:16px}
+.success-box h3{font-family:'Anton',sans-serif;font-size:2.5rem;letter-spacing:3px;color:var(--b);margin-bottom:8px}
+.success-box p{color:var(--mid)}
+
+/* SCHEDULE */
+#schedule{background:var(--g)}
+.sched-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:0;border:var(--border);margin-top:48px}
+.sched-day{border-right:var(--border);background:var(--w)}
+.sched-day:last-child{border-right:none}
+.sched-day.today{background:var(--b)}
+.day-head{padding:12px;text-align:center;background:var(--b);font-family:'IBM Plex Mono',monospace;font-size:.65rem;letter-spacing:2px;text-transform:uppercase;color:var(--mid);border-bottom:var(--border)}
+.sched-day.today .day-head{background:var(--y);color:var(--b)}
+.day-slots{padding:12px 8px;display:flex;flex-direction:column;gap:6px}
+.slot{text-align:center;padding:8px 4px;font-family:'IBM Plex Mono',monospace;font-size:.56rem;background:#f5f5f5;border:1.5px solid #e0e0e0;color:var(--mid)}
+.slot.peak{background:var(--y);border-color:var(--b);color:var(--b);font-weight:600}
+.slot.rest{background:#f9f9f9;color:#ccc;border-style:dashed}
+.sched-day.today .slot{background:#1a1a1a;border-color:#333;color:#555}
+.sched-day.today .slot.peak{background:var(--y);color:var(--b)}
+.sched-day.today .slot.rest{background:#111;color:#333}
+
+/* LOCATION */
+#location{background:var(--b)}
+.loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:48px;border:2px solid #222}
+.map-wrap{border-right:2px solid #222;overflow:hidden}
+.map-wrap iframe{display:block;width:100%;height:420px;border:none;filter:grayscale(1) contrast(1.2)}
+.map-wrap:hover iframe{filter:none;transition:filter .4s}
+.info-col{padding:44px;display:flex;flex-direction:column;gap:20px}
+.info-b{display:flex;align-items:flex-start;gap:16px;padding:20px;border:1.5px solid #1a1a1a;background:#0a0a0a;transition:border-color .2s}
+.info-b:hover{border-color:var(--y)}
+.info-b-icon{font-size:1.6rem;flex-shrink:0}
+.info-b-label{font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:#555;margin-bottom:4px}
+.info-b-val{color:var(--w);font-size:.95rem;line-height:1.5}
+.info-b-val a{color:var(--y);text-decoration:none}
+.info-b-val a:hover{text-decoration:underline}
+
+/* FOOTER */
+footer{background:var(--b);border-top:3px solid var(--y);padding:60px 6% 28px}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.f-logo{font-family:'Anton',sans-serif;font-size:3rem;letter-spacing:4px;color:var(--y);margin-bottom:14px}
+.f-logo span{color:var(--w)}
+.f-desc{color:#555;font-size:.9rem;margin-bottom:18px;line-height:1.6}
+.socials{display:flex;gap:8px}
+.soc{width:36px;height:36px;border:1.5px solid #222;display:flex;align-items:center;justify-content:center;font-size:1rem;text-decoration:none;color:#555;transition:all .2s}
+.soc:hover{border-color:var(--y);color:var(--y)}
+.f-col h4{font-family:'IBM Plex Mono',monospace;font-size:.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--y);margin-bottom:16px}
+.f-col ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.f-col a{color:#555;text-decoration:none;font-size:.9rem;transition:color .2s}
+.f-col a:hover{color:var(--w)}
+.f-bottom{border-top:1px solid #1a1a1a;padding-top:20px;display:flex;justify-content:space-between;align-items:center;font-family:'IBM Plex Mono',monospace;font-size:.62rem;color:#333;flex-wrap:wrap;gap:8px}
+
+/* STICKY CTA */
+.sticky-join{position:fixed;bottom:24px;right:24px;z-index:990;opacity:0;transform:translateY(10px);transition:opacity .3s,transform .3s}
+.sticky-join.show{opacity:1;transform:none}
+.sticky-join a{display:flex;align-items:center;gap:8px;background:var(--y);color:var(--b);font-family:'Anton',sans-serif;font-size:1.1rem;letter-spacing:3px;padding:14px 26px;text-decoration:none;border:2px solid var(--b);box-shadow:var(--shadow);animation:bounceCTA 3s ease-in-out infinite}
+.sticky-join a:hover{background:#ffd000}
+@keyframes bounceCTA{0%,100%{box-shadow:5px 5px 0 var(--b)}50%{box-shadow:8px 8px 0 var(--b);transform:translate(-2px,-2px)}}
+
+/* ADMIN */
+#admin{display:none;position:fixed;inset:0;background:rgba(0,0,0,.97);z-index:9999;overflow-y:auto;padding:40px 5%}
+#admin.on{display:block}
+.adm-close{position:fixed;top:20px;right:24px;background:var(--y);color:var(--b);border:none;cursor:pointer;font-family:'Anton',sans-serif;font-size:1.2rem;letter-spacing:2px;padding:10px 20px}
+.adm-title{font-family:'Anton',sans-serif;font-size:2.5rem;letter-spacing:4px;color:var(--y);margin-bottom:30px}
+.adm-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:36px}
+.adm-stat{background:#0f0f0f;border:1.5px solid #1a1a1a;padding:24px;text-align:center}
+.adm-stat-num{font-family:'Anton',sans-serif;font-size:3rem;color:var(--y);line-height:1}
+.adm-stat-label{font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:2px;color:#555;text-transform:uppercase;margin-top:6px}
+table.leads{width:100%;border-collapse:collapse;font-size:.88rem}
+table.leads th{background:var(--y);color:var(--b);font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:2px;text-transform:uppercase;padding:12px 14px;text-align:left}
+table.leads td{padding:12px 14px;border-bottom:1px solid #111;color:#aaa}
+table.leads tr:hover td{background:#0f0f0f}
+.l-badge{background:rgba(255,224,0,.1);color:var(--y);border:1px solid rgba(255,224,0,.3);font-family:'IBM Plex Mono',monospace;font-size:.6rem;padding:2px 8px;letter-spacing:2px}
+.adm-clear{margin-top:16px;background:#1a1a1a;color:#555;border:1.5px solid #333;cursor:pointer;padding:10px 20px;font-family:'IBM Plex Mono',monospace;font-size:.65rem;letter-spacing:2px;text-transform:uppercase;transition:all .2s}
+.adm-clear:hover{border-color:#ef4444;color:#ef4444}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+@keyframes dotPulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.4);opacity:.7}}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  #hero{grid-template-columns:1fr}
+  #hero::after{display:none}
+  .hero-left{background:var(--b);padding:90px 6% 40px}
+  .hero-right{background:var(--b);padding:0 6% 60px;border-top:2px solid #1a1a1a}
+  .features-row{grid-template-columns:repeat(3,1fr)}
+  .pricing-grid,.trial-grid{grid-template-columns:1fr}
+  .plan{border-right:none;border-bottom:var(--border)}
+  .plan:last-child{border-bottom:none}
+  .trial-left{border-right:none;border-bottom:var(--border)}
+  .loc-grid,.bmi-grid{grid-template-columns:1fr}
+  .map-wrap{border-right:none;border-bottom:2px solid #222}
+  .bmi-fw{border-right:none;border-bottom:2px solid #222}
+  .footer-top{grid-template-columns:1fr 1fr}
+  .sched-grid{grid-template-columns:repeat(4,1fr)}
+  .gallery-grid{grid-template-columns:1fr 1fr}
+  .g-item.wide{grid-column:span 1}
+  .g-item:nth-child(2n){border-right:none}
+  .nav-links{display:none}
+  .burger{display:flex}
+  .hero-stats{max-width:100%}
+}
+@media(max-width:600px){
+  .features-row{grid-template-columns:repeat(2,1fr)}
+  .footer-top{grid-template-columns:1fr}
+  .sched-grid{grid-template-columns:repeat(2,1fr)}
+  .gallery-grid{grid-template-columns:1fr}
+  .g-item{border-right:none!important}
+  .f-row{grid-template-columns:1fr}
+  section{padding:60px 5%}
+  .sticky-join{bottom:12px;right:12px}
+}
+</style>
+</head>
+<body>
+
+<!-- MOBILE NAV -->
+<div class="mob-nav" id="mobNav">
+  <a href="#hero" onclick="closeMob()">Home</a>
+  <a href="#membership" onclick="closeMob()">Plans</a>
+  <a href="#trainers" onclick="closeMob()">Trainers</a>
+  <a href="#gallery" onclick="closeMob()">Workouts</a>
+  <a href="#bmi" onclick="closeMob()">BMI</a>
+  <a href="#trial" onclick="closeMob()">Free Trial</a>
+  <a href="#location" onclick="closeMob()">Location</a>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="logo">RIO<span>GYM</span></a>
+  <ul class="nav-links">
+    <li><a href="#membership">Plans</a></li>
+    <li><a href="#trainers">Trainers</a></li>
+    <li><a href="#gallery">Workouts</a></li>
+    <li><a href="#bmi">BMI</a></li>
+    <li><a href="#schedule">Schedule</a></li>
+    <li><a href="#location">Location</a></li>
+    <li><a href="#trial" class="nav-join">⚡ Free Trial</a></li>
+  </ul>
+  <div class="burger" id="burger"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">◆ Sai Enclave, Hastsal · New Delhi 110059</div>
+    <h1 class="hero-title">
+      <span class="w">NO</span><br>
+      <span class="out">LIMITS</span><br>
+      <span class="y">RIO</span>
+    </h1>
+    <p class="hero-desc">New Delhi's most intense training ground. Dual shifts daily. Elite coaching from Anuj &amp; Sonu. Real results — guaranteed.</p>
+    <div class="hero-actions">
+      <a href="#trial" class="btn btn-y">⚡ Book Free Trial</a>
+      <a href="#membership" class="btn btn-w">View Plans →</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="status-card">
+      <div class="s-header">⏱ Live Gym Status</div>
+      <div class="s-row">
+        <div class="s-dot" id="sDot"></div>
+        <div class="s-label" id="sLabel">LOADING</div>
+      </div>
+      <div class="s-time" id="sTime"></div>
+      <div class="shifts-list">
+        <div class="shift-item" id="sh1"><div class="sd"></div>☀ Morning · 5:00 AM – 10:00 AM</div>
+        <div class="shift-item" id="sh2"><div class="sd"></div>🌙 Evening · 5:00 PM – 10:00 PM</div>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="h-stat"><div class="h-stat-num">500+</div><div class="h-stat-label">Members</div></div>
+      <div class="h-stat"><div class="h-stat-num">2</div><div class="h-stat-label">Trainers</div></div>
+      <div class="h-stat"><div class="h-stat-num">4</div><div class="h-stat-label">Years</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker"><div class="ticker-inner" id="tickerEl"></div></div>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="reveal">
+    <div class="tag-mono" style="color:#666">Core Facilities</div>
+    <h2 class="title" style="color:var(--w)">WHAT WE <span class="y">OFFER</span></h2>
+  </div>
+  <div class="features-row reveal">
+    <div class="feat"><span class="feat-icon">🏋️</span><div class="feat-title">Pro Equipment</div><div class="feat-sub">Latest machines &amp; free weights</div></div>
+    <div class="feat"><span class="feat-icon">⏰</span><div class="feat-title">Dual Shifts</div><div class="feat-sub">5–10 AM &amp; 5–10 PM daily</div></div>
+    <div class="feat"><span class="feat-icon">🧘</span><div class="feat-title">Yoga Zone</div><div class="feat-sub">Flexibility &amp; recovery</div></div>
+    <div class="feat"><span class="feat-icon">🥤</span><div class="feat-title">Nutrition Bar</div><div class="feat-sub">Post-workout protein shakes</div></div>
+    <div class="feat"><span class="feat-icon">🚿</span><div class="feat-title">Clean Showers</div><div class="feat-sub">Fully equipped locker rooms</div></div>
+    <div class="feat"><span class="feat-icon">📊</span><div class="feat-title">Progress Track</div><div class="feat-sub">Monthly body assessments</div></div>
+  </div>
+</section>
+
+<!-- MEMBERSHIP -->
+<section id="membership">
+  <div class="reveal">
+    <div class="tag-mono">Membership Plans</div>
+    <h2 class="title">CHOOSE YOUR <span class="y">PLAN</span></h2>
+    <p class="sub">Transparent Indian Rupee pricing. No hidden charges. Cancel anytime.</p>
+  </div>
+  <div class="pricing-grid reveal">
+
+    <div class="plan">
+      <div class="plan-name">Starter</div>
+      <div class="plan-price"><span class="plan-curr">₹</span>999</div>
+      <div class="plan-period">per month · Single shift</div>
+      <ul class="plan-feats">
+        <li>Gym floor access</li>
+        <li>1 shift per day (AM or PM)</li>
+        <li>Locker facility</li>
+        <li>Basic equipment usage</li>
+        <li class="no">PT sessions</li>
+        <li class="no">Nutrition guidance</li>
+        <li class="no">Body analysis</li>
+      </ul>
+      <a href="#trial" class="btn-plan">Start Free Trial</a>
+    </div>
+
+    <div class="plan star">
+      <div class="plan-badge">★ Most Popular</div>
+      <div class="plan-name">Elite</div>
+      <div class="plan-price"><span class="plan-curr">₹</span>1,699</div>
+      <div class="plan-period">per month · Both shifts</div>
+      <ul class="plan-feats">
+        <li>Full dual-shift access</li>
+        <li>4 PT sessions / month</li>
+        <li>Nutrition consultation</li>
+        <li>Locker + towel service</li>
+        <li>Monthly body analysis</li>
+        <li>Yoga &amp; HIIT classes</li>
+        <li class="no">Priority booking</li>
+      </ul>
+      <a href="#trial" class="btn-plan">Start Free Trial</a>
+    </div>
+
+    <div class="plan">
+      <div class="plan-name">Champion</div>
+      <div class="plan-price"><span class="plan-curr">₹</span>2,799</div>
+      <div class="plan-period">per month · All-inclusive</div>
+      <ul class="plan-feats">
+        <li>Unlimited dual-shift access</li>
+        <li>8 PT sessions / month</li>
+        <li>Custom diet plan</li>
+        <li>Priority class booking</li>
+        <li>Weekly body analysis</li>
+        <li>15% supplement discount</li>
+        <li>VIP locker room access</li>
+      </ul>
+      <a href="#trial" class="btn-plan">Start Free Trial</a>
+    </div>
+
+  </div>
+  <p class="reveal" style="margin-top:18px;font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:1px;color:var(--mid)">✦ GST included · Quarterly &amp; annual plans up to 30% off · Ask at the desk</p>
+</section>
+
+<!-- TRAINERS -->
+<section id="trainers">
+  <div class="reveal">
+    <div class="tag-mono">Meet the Team</div>
+    <h2 class="title">YOUR <span class="y">COACHES</span></h2>
+    <p class="sub">Expert-certified trainers obsessed with your progress.</p>
+  </div>
+  <div class="trainers-scroll reveal">
+    <div class="trainer">
+      <div class="trainer-top"><div class="trainer-num">01</div>💪</div>
+      <div class="trainer-body">
+        <div class="trainer-name">ANUJ</div>
+        <div class="trainer-role">Head Strength Coach · 7+ Yrs</div>
+        <p class="trainer-bio">Certified strength &amp; conditioning specialist who has transformed 200+ members. Known for progressive overload protocols and no-nonsense diet guidance that delivers real results every month.</p>
+        <div class="tags">
+          <span class="tg hl">💪 Powerlifting</span>
+          <span class="tg hl">🔥 Muscle Gain</span>
+          <span class="tg">⚡ HIIT</span>
+          <span class="tg">📉 Weight Loss</span>
+          <span class="tg">🔄 Body Recomp</span>
+        </div>
+      </div>
+    </div>
+    <div class="trainer">
+      <div class="trainer-top"><div class="trainer-num">02</div>🧠</div>
+      <div class="trainer-body">
+        <div class="trainer-name">SONU</div>
+        <div class="trainer-role">Cardio &amp; Functional Coach · 5+ Yrs</div>
+        <p class="trainer-bio">Competitive sports background meets holistic fitness. Fuses cardio conditioning, functional training and yoga to build endurance, flexibility and mental edge — not just muscle.</p>
+        <div class="tags">
+          <span class="tg hl">🏃 Cardio &amp; Endurance</span>
+          <span class="tg hl">🧘 Yoga Integration</span>
+          <span class="tg">⚙️ Functional Training</span>
+          <span class="tg">🎯 Core Strength</span>
+          <span class="tg">🏅 Sports Performance</span>
+        </div>
+      </div>
+    </div>
+    <div class="cta-trainer">
+      <div class="big">BOOK A<br>SESSION</div>
+      <p>Get a 1-on-1 consultation with Anuj or Sonu — free with your trial.</p>
+      <a href="#trial" class="btn btn-y" style="font-size:1rem;padding:12px 26px">Request Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="reveal">
+    <div class="tag-mono">Programs &amp; Workouts</div>
+    <h2 class="title">TRAIN LIKE A <span class="y">PRO</span></h2>
+  </div>
+  <div class="gallery-grid reveal">
+    <div class="g-item wide">
+      <div class="g-icon-bg">🏋️</div>
+      <div class="g-tag">★ Most Popular</div>
+      <span class="g-icon">🏋️</span>
+      <div class="g-name">Strength &amp; Hypertrophy</div>
+      <div class="g-sub">Progressive overload · Free weights · Cable systems</div>
+    </div>
+    <div class="g-item">
+      <div class="g-icon-bg">🔥</div>
+      <div class="g-tag">New</div>
+      <span class="g-icon">🔥</span>
+      <div class="g-name">HIIT Blitz</div>
+      <div class="g-sub">Max burn · 30 min flat</div>
+    </div>
+    <div class="g-item">
+      <div class="g-icon-bg">🧘</div>
+      <div class="g-tag">Recovery</div>
+      <span class="g-icon">🧘</span>
+      <div class="g-name">Yoga &amp; Mobility</div>
+      <div class="g-sub">Flexibility · Balance</div>
+    </div>
+    <div class="g-item">
+      <div class="g-icon-bg">🏃</div>
+      <div class="g-tag">Cardio</div>
+      <span class="g-icon">🏃</span>
+      <div class="g-name">Cardio Zone</div>
+      <div class="g-sub">Treadmills · Cycles · Steppers</div>
+    </div>
+    <div class="g-item wide">
+      <div class="g-icon-bg">⚡</div>
+      <div class="g-tag">↑ Trending</div>
+      <span class="g-icon">⚡</span>
+      <div class="g-name">Functional Athletics</div>
+      <div class="g-sub">Sport-specific · Agility · Explosive power</div>
+    </div>
+  </div>
+</section>
+
+<!-- BMI -->
+<section id="bmi">
+  <div class="reveal">
+    <div class="tag-mono" style="color:#666">Health Tool</div>
+    <h2 class="title"><span style="color:var(--w)">BMI</span> <span class="y">CALCULATOR</span></h2>
+    <p class="sub" style="color:#555">Get your score instantly. Our trainers use BMI as the starting point for your custom program.</p>
+  </div>
+  <div class="bmi-grid reveal">
+    <div class="bmi-fw">
+      <p class="form-label" style="margin-bottom:10px">Unit System</p>
+      <div class="unit-row">
+        <button class="unit-btn on" id="metBtn" onclick="setUnit('metric')">📏 Metric (cm/kg)</button>
+        <button class="unit-btn" id="impBtn" onclick="setUnit('imperial')">📐 Imperial (in/lb)</button>
+      </div>
+      <label class="form-label" id="hLbl">Height (cm)</label>
+      <input type="number" class="form-input" id="hIn" placeholder="175" oninput="calcBMI()">
+      <label class="form-label" id="wLbl">Weight (kg)</label>
+      <input type="number" class="form-input" id="wIn" placeholder="72" oninput="calcBMI()">
+      <label class="form-label">Age</label>
+      <input type="number" class="form-input" id="aIn" placeholder="28">
+      <a href="#trial" class="btn btn-y" style="display:block;text-align:center;font-size:1rem;padding:14px;margin-top:4px;border:2px solid var(--y)">Get My Custom Plan →</a>
+    </div>
+    <div class="bmi-rw">
+      <p style="font-family:'IBM Plex Mono',monospace;font-size:.65rem;letter-spacing:3px;text-transform:uppercase;color:#444">Your BMI Score</p>
+      <div class="bmi-num" id="bmiNum">--</div>
+      <div class="bmi-cat" id="bmiCat">Fill in your details</div>
+      <div class="bmi-track"><div class="bmi-fill"></div><div class="bmi-needle" id="bmiNeedle"></div></div>
+      <div class="bmi-scale"><span>Under</span><span>Normal</span><span>Over</span><span>Obese</span></div>
+      <p class="bmi-tip" id="bmiTip">Enter your height and weight to see your BMI and get a personalised fitness recommendation from our trainers.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FREE TRIAL -->
+<section id="trial">
+  <div class="reveal">
+    <div class="tag-mono">Lead Generation</div>
+    <h2 class="title">CLAIM YOUR <span class="y">FREE TRIAL</span></h2>
+    <p class="sub">No commitment. No credit card. Just show up.</p>
+  </div>
+  <div class="trial-grid reveal">
+    <div class="trial-left">
+      <h3>WHAT YOU GET FREE</h3>
+      <p>Full gym access, a trainer session, and a complete fitness assessment worth ₹500 — at zero cost to you.</p>
+      <div class="perks">
+        <div class="perk"><div class="perk-icon">🎯</div><div><strong>Full Day Access</strong><span>All equipment across both shifts on your trial day</span></div></div>
+        <div class="perk"><div class="perk-icon">💪</div><div><strong>1-on-1 with a Trainer</strong><span>Anuj or Sonu will guide your first session personally</span></div></div>
+        <div class="perk"><div class="perk-icon">📋</div><div><strong>Fitness Assessment</strong><span>BMI + body fat analysis + goal mapping</span></div></div>
+        <div class="perk"><div class="perk-icon">🥤</div><div><strong>Welcome Protein Shake</strong><span>Complimentary post-workout nutrition shake</span></div></div>
+      </div>
+    </div>
+    <div class="lead-form-wrap">
+      <div id="leadInner">
+        <div class="lead-title">BOOK YOUR SPOT</div>
+        <div class="f-row">
+          <div>
+            <label class="fi-label">Full Name ✱</label>
+            <input type="text" class="fi" id="lName" placeholder="Rahul Sharma">
+          </div>
+          <div>
+            <label class="fi-label">Phone ✱</label>
+            <input type="tel" class="fi" id="lPhone" placeholder="+91 98765 43210">
+          </div>
+        </div>
+        <label class="fi-label">Email Address</label>
+        <input type="email" class="fi" id="lEmail" placeholder="rahul@email.com">
+        <div class="f-row">
+          <div>
+            <label class="fi-label">Preferred Shift</label>
+            <select class="fi" id="lShift">
+              <option value="">Select shift</option>
+              <option>Morning (5 AM – 10 AM)</option>
+              <option>Evening (5 PM – 10 PM)</option>
+            </select>
+          </div>
+          <div>
+            <label class="fi-label">Primary Goal</label>
+            <select class="fi" id="lGoal">
+              <option value="">Select goal</option>
+              <option>Weight Loss</option>
+              <option>Muscle Gain</option>
+              <option>Improve Stamina</option>
+              <option>General Fitness</option>
+              <option>Sports Performance</option>
+            </select>
+          </div>
+        </div>
+        <label class="fi-label">Preferred Trainer</label>
+        <select class="fi" id="lTrainer">
+          <option value="">No preference</option>
+          <option>Anuj (Strength &amp; Muscle)</option>
+          <option>Sonu (Cardio &amp; Functional)</option>
+        </select>
+        <label class="fi-label">Message (optional)</label>
+        <textarea class="fi" id="lMsg" rows="3" placeholder="Any health conditions or questions..."></textarea>
+        <button class="btn btn-y" style="width:100%;justify-content:center;font-size:1.1rem;padding:16px;border:2px solid var(--b)" onclick="submitLead()">⚡ SECURE MY FREE TRIAL</button>
+        <p style="text-align:center;margin-top:10px;font-family:'IBM Plex Mono',monospace;font-size:.62rem;color:var(--mid)">We'll call within 2 hours · No spam · 🔒 Your data is safe</p>
+      </div>
+      <div class="success-box" id="successBox">
+        <div class="ico">✅</div>
+        <h3>BOOKING CONFIRMED!</h3>
+        <p>We'll call you within 2 hours. Get ready to train! 💪</p>
+        <br>
+        <a href="#location" class="btn btn-y" style="display:inline-flex;font-size:1rem;padding:12px 28px;border:2px solid var(--b)">📍 Get Directions</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCHEDULE -->
+<section id="schedule">
+  <div class="reveal">
+    <div class="tag-mono">Weekly Timetable</div>
+    <h2 class="title">DUAL-SHIFT <span class="y">SCHEDULE</span></h2>
+    <p class="sub">6 days a week · Sunday is rest &amp; recovery</p>
+  </div>
+  <div class="sched-grid reveal" id="schedGrid"></div>
+  <div class="reveal" style="display:flex;gap:20px;flex-wrap:wrap;margin-top:16px">
+    <div style="display:flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:.7rem"><div style="width:14px;height:14px;background:var(--y);border:1.5px solid var(--b)"></div>Peak Hours</div>
+    <div style="display:flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:.7rem"><div style="width:14px;height:14px;background:#f5f5f5;border:1.5px solid #ddd"></div>Open</div>
+    <div style="display:flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:.7rem;color:var(--mid)">★ = Today</div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section id="location">
+  <div class="reveal">
+    <div class="tag-mono" style="color:#666">Find Us</div>
+    <h2 class="title"><span style="color:var(--w)">VISIT </span><span class="y">RIO GYM</span></h2>
+    <p class="sub" style="color:#555">Sai Enclave, Hastsal — heart of West Delhi's fitness community.</p>
+  </div>
+  <div class="loc-grid reveal">
+    <div class="map-wrap">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.5!2d76.99!3d28.648!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d04d5a0000001%3A0x1!2sSai+Enclave%2C+Hastsal%2C+New+Delhi+110059!5e0!3m2!1sen!2sin!4v1" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div class="info-col">
+      <div class="info-b"><div class="info-b-icon">📍</div><div><div class="info-b-label">Address</div><div class="info-b-val">Sai Enclave, Hastsal<br>New Delhi – 110059, Delhi</div></div></div>
+      <div class="info-b"><div class="info-b-icon">⏰</div><div><div class="info-b-label">Hours</div><div class="info-b-val">☀ Morning: <span style="color:var(--y)">5:00 AM – 10:00 AM</span><br>🌙 Evening: <span style="color:var(--y)">5:00 PM – 10:00 PM</span><br><span style="color:#555;font-size:.85rem">Mon–Sat · Sunday Closed</span></div></div></div>
+      <div class="info-b"><div class="info-b-icon">📞</div><div><div class="info-b-label">Contact</div><div class="info-b-val"><a href="tel:+919876543210">+91 98765 43210</a><br><a href="mailto:info@riogym.in">info@riogym.in</a></div></div></div>
+      <div class="info-b"><div class="info-b-icon">🗺️</div><div><div class="info-b-label">Google Maps</div><div class="info-b-val"><a href="https://maps.app.goo.gl/tASLe4BgpbatGAdC9" target="_blank" rel="noopener">Open in Google Maps →</a></div></div></div>
+      <a href="https://maps.app.goo.gl/tASLe4BgpbatGAdC9" target="_blank" rel="noopener" class="btn btn-y" style="text-align:center;justify-content:center;border:2px solid var(--y)">📍 Get Directions</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="f-logo">RIO<span>GYM</span></div>
+      <p class="f-desc">Premier athletic facility in Hastsal, New Delhi. Forging stronger bodies and sharper minds since 2020.</p>
+      <div class="socials">
+        <a href="#" class="soc">📷</a>
+        <a href="#" class="soc">👥</a>
+        <a href="#" class="soc">▶️</a>
+        <a href="#" class="soc">💬</a>
+      </div>
+    </div>
+    <div class="f-col">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="#membership">Membership Plans</a></li>
+        <li><a href="#trainers">Meet Trainers</a></li>
+        <li><a href="#gallery">Workouts</a></li>
+        <li><a href="#bmi">BMI Calculator</a></li>
+        <li><a href="#schedule">Schedule</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <h4>Programs</h4>
+      <ul>
+        <li><a href="#trial">Free Trial</a></li>
+        <li><a href="#gallery">Strength Training</a></li>
+        <li><a href="#gallery">HIIT Classes</a></li>
+        <li><a href="#gallery">Yoga Sessions</a></li>
+        <li><a href="#gallery">Personal Training</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:+919876543210">+91 98765 43210</a></li>
+        <li><a href="mailto:info@riogym.in">info@riogym.in</a></li>
+        <li><a href="https://maps.app.goo.gl/tASLe4BgpbatGAdC9" target="_blank">Sai Enclave, Hastsal</a></li>
+        <li><a href="#" onclick="openAdmin();return false">⚙ Admin Panel</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="f-bottom">
+    <span>© 2024 RIO GYM · Sai Enclave, Hastsal, New Delhi 110059</span>
+    <span>Built for Champions ◆ Engineered for Results</span>
+  </div>
+</footer>
+
+<!-- STICKY CTA -->
+<div class="sticky-join" id="stickyCTA">
+  <a href="#trial">⚡ JOIN NOW</a>
+</div>
+
+<!-- ADMIN PANEL -->
+<div id="admin">
+  <button class="adm-close" onclick="closeAdmin()">✕ CLOSE</button>
+  <div class="adm-title">⚙ ADMIN — RIO GYM</div>
+  <div class="adm-stats" id="admStats"></div>
+  <div style="font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:2px;color:#555;text-transform:uppercase;margin-bottom:14px">◆ Member Leads</div>
+  <table class="leads"><thead><tr><th>#</th><th>Name</th><th>Phone</th><th>Email</th><th>Shift</th><th>Goal</th><th>Trainer</th><th>Status</th><th>Date</th></tr></thead><tbody id="leadsBody"></tbody></table>
+  <button class="adm-clear" onclick="clearLeads()">⚠ Clear All Leads</button>
+</div>
+
+<script>
+/* TICKER */
+const ti=['STRENGTH TRAINING','CARDIO ZONE','WEIGHT LOSS','MUSCLE GAIN','YOGA & FLEXIBILITY','PERSONAL TRAINING','HIIT WORKOUTS','NUTRITION GUIDANCE'];
+let ts='';for(let i=0;i<2;i++)ti.forEach(s=>ts+=`<span class="ticker-item">${s} <span style="opacity:.4">◆</span></span>`);
+document.getElementById('tickerEl').innerHTML=ts;
+
+/* NAV */
+document.getElementById('burger').onclick=()=>document.getElementById('mobNav').classList.toggle('open');
+function closeMob(){document.getElementById('mobNav').classList.remove('open')}
+
+/* STICKY */
+const sc=document.getElementById('stickyCTA');
+window.addEventListener('scroll',()=>sc.classList.toggle('show',scrollY>600));
+
+/* GYM STATUS */
+function updateStatus(){
+  const now=new Date(),h=now.getHours(),m=now.getMinutes(),t=h+m/60;
+  const dot=document.getElementById('sDot'),lbl=document.getElementById('sLabel'),tm=document.getElementById('sTime');
+  const s1=document.getElementById('sh1'),s2=document.getElementById('sh2');
+  tm.textContent='Local time: '+now.toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit',hour12:true});
+  s1.classList.remove('active');s2.classList.remove('active');
+  const isMorn=t>=5&&t<10,isEve=t>=17&&t<22,isSun=now.getDay()===0;
+  if(isSun){dot.className='s-dot closed';lbl.textContent='SUNDAY CLOSED';lbl.style.color='#ef4444';}
+  else if(isMorn||isEve){dot.className='s-dot peak';lbl.textContent='PEAK HOURS';lbl.style.color='var(--y)';if(isMorn)s1.classList.add('active');else s2.classList.add('active');}
+  else{dot.className='s-dot closed';lbl.textContent='CLOSED';lbl.style.color='#ef4444';}
+}
+updateStatus();setInterval(updateStatus,30000);
+
+/* BMI */
+let unit='metric';
+function setUnit(u){
+  unit=u;
+  document.getElementById('metBtn').classList.toggle('on',u==='metric');
+  document.getElementById('impBtn').classList.toggle('on',u==='imperial');
+  document.getElementById('hLbl').textContent=u==='metric'?'Height (cm)':'Height (inches)';
+  document.getElementById('wLbl').textContent=u==='metric'?'Weight (kg)':'Weight (lbs)';
+  document.getElementById('hIn').placeholder=u==='metric'?'175':'69';
+  document.getElementById('wIn').placeholder=u==='metric'?'72':'158';
+  calcBMI();
+}
+function calcBMI(){
+  const h=parseFloat(document.getElementById('hIn').value),w=parseFloat(document.getElementById('wIn').value);
+  if(!h||!w||h<=0||w<=0)return;
+  let bmi=unit==='metric'?w/((h/100)**2):(w/(h*h))*703;
+  bmi=Math.round(bmi*10)/10;
+  const ne=document.getElementById('bmiNum'),ce=document.getElementById('bmiCat'),te=document.getElementById('bmiTip'),nd=document.getElementById('bmiNeedle');
+  ne.textContent=bmi;
+  let cat,col,tip,pct;
+  if(bmi<18.5){cat='UNDERWEIGHT';col='#3b82f6';pct=12;tip='You\'re underweight. Trainer Anuj will design a personalised muscle-gain program to bring you to a healthy range fast.';}
+  else if(bmi<25){cat='NORMAL WEIGHT ✓';col='var(--y)';pct=42;tip='Great shape! You\'re in the healthy BMI range. Sonu can help you push further with performance & endurance training.';}
+  else if(bmi<30){cat='OVERWEIGHT';col='#f59e0b';pct=65;tip='Slightly overweight. A HIIT + custom diet plan with our trainers will get you on track within 8 weeks.';}
+  else{cat='OBESE';col='#ef4444';pct=85;tip='Our trainers have achieved remarkable transformations with members just like you. Your free trial is the first step.';}
+  ne.style.color=col;ce.textContent=cat;ce.style.color=col;nd.style.left=pct+'%';te.textContent=tip;
+}
+
+/* LEAD FORM */
+function submitLead(){
+  const name=document.getElementById('lName').value.trim(),phone=document.getElementById('lPhone').value.trim();
+  if(!name||!phone){alert('Please enter your name and phone number.');return;}
+  const lead={name,phone,email:document.getElementById('lEmail').value.trim(),shift:document.getElementById('lShift').value,goal:document.getElementById('lGoal').value,trainer:document.getElementById('lTrainer').value,status:'New',date:new Date().toLocaleString('en-IN')};
+  const leads=JSON.parse(localStorage.getItem('rg_leads')||'[]');
+  leads.push(lead);localStorage.setItem('rg_leads',JSON.stringify(leads));
+  document.getElementById('leadInner').style.display='none';
+  document.getElementById('successBox').style.display='block';
+}
+
+/* SCHEDULE */
+const dNames=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+const todayD=new Date().getDay();
+const sg=document.getElementById('schedGrid');
+dNames.forEach((d,i)=>{
+  const isSun=i===0,isToday=i===todayD;
+  const div=document.createElement('div');
+  div.className='sched-day'+(isToday?' today':'');
+  div.innerHTML=`<div class="day-head">${d.slice(0,3).toUpperCase()}${isToday?' ★':''}</div><div class="day-slots">${isSun?'<div class="slot rest">REST DAY</div>':'<div class="slot peak">☀ 5–10 AM</div><div class="slot" style="font-size:.5rem;opacity:.4;padding:4px">——</div><div class="slot peak">🌙 5–10 PM</div>'}</div>`;
+  sg.appendChild(div);
+});
+
+/* SCROLL REVEAL */
+const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+/* ADMIN */
+function openAdmin(){document.getElementById('admin').classList.add('on');renderAdmin();}
+function closeAdmin(){document.getElementById('admin').classList.remove('on');}
+function renderAdmin(){
+  const leads=JSON.parse(localStorage.getItem('rg_leads')||'[]');
+  const morn=leads.filter(l=>l.shift&&l.shift.includes('Morning')).length;
+  const eve=leads.filter(l=>l.shift&&l.shift.includes('Evening')).length;
+  document.getElementById('admStats').innerHTML=`
+    <div class="adm-stat"><div class="adm-stat-num">${leads.length}</div><div class="adm-stat-label">Total Leads</div></div>
+    <div class="adm-stat"><div class="adm-stat-num" style="color:#f59e0b">${morn}</div><div class="adm-stat-label">☀ Morning Shift</div></div>
+    <div class="adm-stat"><div class="adm-stat-num" style="color:#3b82f6">${eve}</div><div class="adm-stat-label">🌙 Evening Shift</div></div>`;
+  const tbody=document.getElementById('leadsBody');
+  if(!leads.length){tbody.innerHTML='<tr><td colspan="9" style="text-align:center;padding:30px;color:#333;font-family:\'IBM Plex Mono\',monospace;font-size:.75rem">No leads yet.</td></tr>';return;}
+  tbody.innerHTML=leads.map((l,i)=>`<tr><td>${i+1}</td><td><strong style="color:var(--w)">${l.name}</strong></td><td><a href="tel:${l.phone}" style="color:var(--y)">${l.phone}</a></td><td>${l.email||'—'}</td><td>${l.shift||'—'}</td><td>${l.goal||'—'}</td><td>${l.trainer||'No pref.'}</td><td><span class="l-badge">NEW</span></td><td style="font-size:.78rem;color:#444">${l.date}</td></tr>`).join('');
+}
+function clearLeads(){if(confirm('Clear all leads? This cannot be undone.')){localStorage.removeItem('rg_leads');renderAdmin();}}
+</script>
+</body>
+</html>
